@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 40" fill="none">
+  <rect x="2" y="2" width="36" height="36" rx="8" stroke="#1976D2" stroke-width="2.5" fill="#0D47A1"/>
+  <rect x="10" y="10" width="6" height="6" rx="1" fill="white"/>
+  <rect x="18" y="10" width="6" height="6" rx="1" fill="white"/>
+  <rect x="26" y="10" width="6" height="6" rx="1" fill="white" opacity="0.6"/>
+  <rect x="10" y="18" width="6" height="6" rx="1" fill="white" opacity="0.6"/>
+  <rect x="18" y="18" width="6" height="6" rx="1" fill="white"/>
+  <rect x="26" y="18" width="6" height="6" rx="1" fill="white"/>
+  <rect x="10" y="26" width="6" height="6" rx="1" fill="white"/>
+  <rect x="18" y="26" width="6" height="6" rx="1" fill="white" opacity="0.6"/>
+  <rect x="26" y="26" width="6" height="6" rx="1" fill="white"/>
+  <text x="48" y="28" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="800" fill="#0D47A1">Life</text>
+  <text x="100" y="28" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="800" fill="#1976D2">Pass</text>
+</svg>
