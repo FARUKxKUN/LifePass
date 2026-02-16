@@ -2,8 +2,6 @@
 
 LifePass est une plateforme moderne et sécurisée permettant aux patients de centraliser leurs dossiers médicaux et aux professionnels de santé d'y accéder instantanément via un système de QR Code.
 
-![LifePass Banner](https://raw.githubusercontent.com/FARUKxKUN/LifePass/main/public/banner.png) *(Note: Placeholder pour une future bannière)*
-
 ## 🚀 Fonctionnalités Clés
 
 ### 👤 Pour les Patients
