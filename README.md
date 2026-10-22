@@ -1,67 +1,44 @@
-# LifePass - Plateforme de Gestion de Dossiers Médicaux
+# LifePass
 
-LifePass est une plateforme moderne et sécurisée permettant aux patients de centraliser leurs dossiers médicaux et aux professionnels de santé d'y accéder instantanément via un système de QR Code.
+**1st place, DevHeist hackathon at ISIMa.**
 
-## 🚀 Fonctionnalités Clés
+LifePass lets patients keep their medical records in one place and share them with a doctor through a personal QR code. A doctor scans the code, sees the patient's history, and can add a new report. The patient sees an access log of who opened their file and when.
 
-### 👤 Pour les Patients
-- **Tableau de Bord Intuitif** : Suivi de l'activité récente et des accès.
-- **Dossier Médical Centralisé** : Accès rapide aux rapports, ordonnances et historique.
-- **Mon QR Code** : Votre passeport médical personnel pour un accès rapide par les médecins.
-- **Journal d'Accès** : Visualisez qui a consulté vos données et quand.
+This repo is the clickable prototype we presented. All patient data is mocked, and the UI is in French.
 
-### ⚕️ Pour les Professionnels de Santé
-- **Scan QR Code** : Accès immédiat au profil médical du patient en cas d'urgence ou de consultation.
-- **Historique des Patients** : Gestion simplifiée des patients consultés.
-- **Ajout de Rapports** : Possibilité de mettre à jour le dossier du patient avec de nouveaux comptes-rendus.
+## Team
 
-## 🛠️ Stack Technique
+Built as a team. My teammates led the concept and the pitch. I built the prototype.
 
-- **Frontend** : [React](https://reactjs.org/) (Vite)
-- **Styling** : [Tailwind CSS](https://tailwindcss.com/)
-- **Animations** : [Framer Motion](https://www.framer.com/motion/)
-- **Routage** : [React Router v7](https://reactrouter.com/)
-- **Icônes** : [Lucide React](https://lucide.dev/)
-- **QR Code** : [qrcode.react](https://www.npmjs.com/package/qrcode.react)
+## What's in the prototype
 
-## 📦 Installation et Lancement
+**Patient side**
+- Dashboard with recent activity
+- Medical records (reports, prescriptions, history)
+- Personal QR code
+- Access log
+- Settings
 
-1. **Cloner le dépôt** :
-   ```bash
-   git clone https://github.com/FARUKxKUN/LifePass.git
-   cd LifePass
-   ```
+**Doctor side**
+- QR scan to open a patient's file
+- Patient view with history
+- Add a report to a patient's file
+- Dashboard of recently seen patients
 
-2. **Installer les dépendances** :
-   ```bash
-   npm install
-   ```
+## Stack
 
-3. **Lancer l'application en mode développement** :
-   ```bash
-   npm run dev
-   ```
+- React + Vite
+- Tailwind CSS
+- Framer Motion
+- React Router
+- qrcode.react
+- Lucide icons
 
-4. **Accéder à l'application** :
-   Ouvrez [http://localhost:5173](http://localhost:5173) dans votre navigateur.
+## Run locally
 
-## 📂 Architecture du Projet
-
-```text
-src/
-├── components/     # Composants UI réutilisables
-├── context/        # Gestion de l'état (Auth, etc.)
-├── layouts/        # Structures de pages (Patient, Docteur)
-├── pages/          # Vues de l'application
-│   ├── patient/    # Portail patient
-│   └── doctor/     # Portail médecin
-├── router.jsx      # Configuration des routes
-└── index.css       # Styles globaux et Tailwind
+```bash
+npm install
+npm run dev
 ```
 
-## 🔒 Sécurité et Confidentialité
-
-La sécurité des données est au cœur de LifePass. Chaque accès est consigné et seul l'utilisateur final a le plein contrôle sur son dossier médical.
-
----
-Développé avec ❤️ par [FARUKxKUN](https://github.com/FARUKxKUN)
+Demo accounts are defined in `src/data/mockData.js`.
