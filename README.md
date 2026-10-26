@@ -2,6 +2,8 @@
 
 Redesigned in October 2026. The version presented at the hackathon is tagged `hackathon-2026-02`.
 
+**Live demo: https://lifepass-sandy.vercel.app** (prototype with mock data)
+
 **1st place, DevHeist hackathon at ISIMa.**
 
 LifePass lets patients keep their medical records in one place and share them with a doctor through a personal QR code. A doctor scans the code, sees the patient's history, and can add a new report. The patient sees an access log of who opened their file and when.
