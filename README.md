@@ -1,14 +1,20 @@
 # LifePass
 
+Redesigned in October 2026. The version presented at the hackathon is tagged `hackathon-2026-02`.
+
 **1st place, DevHeist hackathon at ISIMa.**
 
 LifePass lets patients keep their medical records in one place and share them with a doctor through a personal QR code. A doctor scans the code, sees the patient's history, and can add a new report. The patient sees an access log of who opened their file and when.
 
-This repo is the clickable prototype we presented. All patient data is mocked, and the UI is in French.
+This repo is the clickable prototype we presented. All patient data is mocked, the UI is in French, and this is a prototype: not a medical product and not compliant with any health-data regulation.
+
+![LifePass landing](docs/screenshot.png)
+
+![The patient QR code](docs/patient-qr.png)
 
 ## Team
 
-Built as a team. My teammates led the concept and the pitch. I built the prototype.
+Built as a team. [Yassine Bouteraa](https://github.com/yassinebouteraa) and [Rayen Chatti](https://github.com/rayenchatti) led the concept and the pitch. Farouk Battikh built the prototype.
 
 ## What's in the prototype
 
@@ -27,12 +33,13 @@ Built as a team. My teammates led the concept and the pitch. I built the prototy
 
 ## Stack
 
-- React + Vite
-- Tailwind CSS
-- Framer Motion
+- React + Vite + TypeScript
+- Tailwind CSS v4 (CSS-first tokens)
+- motion and GSAP ScrollTrigger
 - React Router
 - qrcode.react
-- Lucide icons
+- Phosphor icons
+- Fraunces, Figtree and Geist Mono (self-hosted)
 
 ## Run locally
 
@@ -41,4 +48,4 @@ npm install
 npm run dev
 ```
 
-Demo accounts are defined in `src/data/mockData.js`.
+Demo accounts are defined in `src/data/mockData.ts`.
