@@ -29,6 +29,11 @@ export default function PatientMedicalRecords() {
   const [search, setSearch] = useState('');
   const [type, setType] = useState('all');
   const [selected, setSelected] = useState<MedicalReport | null>(null);
+  const [lastSelected, setLastSelected] = useState<MedicalReport | null>(null);
+  const openReport = (report: MedicalReport) => {
+    setLastSelected(report);
+    setSelected(report);
+  };
 
   const reports = useMemo(() => {
     const q = search.trim().toLowerCase();
@@ -82,7 +87,7 @@ export default function PatientMedicalRecords() {
       ) : view === 'list' ? (
         <ul className="divide-y divide-line border-y border-line">
           {reports.map((r) => (
-            <ReportRow key={r.id} report={r} onOpen={() => setSelected(r)} />
+            <ReportRow key={r.id} report={r} onOpen={() => openReport(r)} />
           ))}
         </ul>
       ) : (
@@ -94,7 +99,7 @@ export default function PatientMedicalRecords() {
                 {reports
                   .filter((r) => r.date.startsWith(year))
                   .map((r) => (
-                    <ReportRow key={r.id} report={r} onOpen={() => setSelected(r)} />
+                    <ReportRow key={r.id} report={r} onOpen={() => openReport(r)} />
                   ))}
               </ul>
             </section>
@@ -102,7 +107,7 @@ export default function PatientMedicalRecords() {
         </div>
       )}
 
-      <Sheet open={selected !== null} onClose={() => setSelected(null)} title={selected?.title ?? ''}>
+      <Sheet open={selected !== null} onClose={() => setSelected(null)} title={(selected ?? lastSelected)?.title ?? ''}>
         {selected && (
           <div className="flex flex-col gap-8">
             <div className="flex flex-wrap items-center gap-3">

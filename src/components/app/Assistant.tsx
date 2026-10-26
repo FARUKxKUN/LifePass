@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type FormEvent } from 'react';
+import { useEffect, useId, useRef, useState, type FormEvent } from 'react';
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
 import { ChatCircleDots, PaperPlaneTilt, X } from '@phosphor-icons/react';
 import { AI_SYNTHESIS } from '../../data/mockData';
@@ -53,7 +53,21 @@ export function Assistant() {
     { role: 'bot', content: "Bonjour. Je suis l'assistant de démonstration de LifePass. Choisissez une question ci-dessous.", time: now() },
   ]);
   const end = useRef<HTMLDivElement>(null);
+  const panel = useRef<HTMLElement>(null);
+  const toggle = useRef<HTMLButtonElement>(null);
+  const reply = useRef<number | undefined>(undefined);
+  const panelId = useId();
   const reduce = useReducedMotion();
+
+  useEffect(() => () => window.clearTimeout(reply.current), []);
+  useEffect(() => {
+    if (open) panel.current?.querySelector<HTMLInputElement>('input')?.focus();
+  }, [open]);
+
+  const close = () => {
+    setOpen(false);
+    toggle.current?.focus();
+  };
 
   useEffect(() => {
     end.current?.scrollIntoView({ block: 'end', behavior: reduce ? 'auto' : 'smooth' });
@@ -65,7 +79,7 @@ export function Assistant() {
     setMessages((prev) => [...prev, { role: 'user', content, time: now() }]);
     setInput('');
     setTyping(true);
-    window.setTimeout(() => {
+    reply.current = window.setTimeout(() => {
       setMessages((prev) => [...prev, { role: 'bot', content: scriptedReply(content), time: now() }]);
       setTyping(false);
     }, 900);
@@ -79,8 +93,10 @@ export function Assistant() {
   return (
     <>
       <Button
+        ref={toggle}
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
+        aria-controls={panelId}
         className="fixed bottom-24 right-5 z-30 shadow-[0_16px_32px_-12px_rgb(29_68_103/0.6)] md:bottom-8 md:right-8"
       >
         {open ? <X size={22} weight="bold" /> : <ChatCircleDots size={22} weight="fill" />}
@@ -90,6 +106,11 @@ export function Assistant() {
       <AnimatePresence>
         {open && (
           <motion.section
+            ref={panel}
+            id={panelId}
+            onKeyDown={(e) => {
+              if (e.key === 'Escape') close();
+            }}
             aria-label="Assistant de démonstration"
             initial={reduce ? { opacity: 0 } : { opacity: 0, y: 24, scale: 0.96 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}

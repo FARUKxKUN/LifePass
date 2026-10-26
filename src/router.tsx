@@ -19,7 +19,22 @@ const NotInPrototype = (title: string): Pick<RouteObject, 'lazy'> => ({
   },
 });
 
+function RouteError() {
+  return (
+    <main className="shell flex min-h-dvh flex-col items-start justify-center gap-4">
+      <h1 className="text-h1">Un problème est survenu</h1>
+      <p className="max-w-lg text-ink-2">La page n'a pas pu se charger. Rechargez pour réessayer.</p>
+      <button type="button" onClick={() => window.location.reload()} className="min-h-12 rounded-full bg-pulse px-6 font-semibold text-surface">
+        Recharger
+      </button>
+    </main>
+  );
+}
+
 export const router = createBrowserRouter([
+  {
+    errorElement: <RouteError />,
+    children: [
   { path: '/', ...page(() => import('./pages/Home')) },
   { path: '/login', ...page(() => import('./pages/Login')) },
   { path: '/signup', ...page(() => import('./pages/Signup')) },
@@ -49,4 +64,5 @@ export const router = createBrowserRouter([
     ],
   },
   { path: '*', element: <Navigate to="/" replace /> },
+]},
 ]);

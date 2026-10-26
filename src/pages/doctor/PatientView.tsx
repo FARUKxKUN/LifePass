@@ -29,13 +29,23 @@ export default function DoctorPatientView() {
   const [tab, setTab] = useState<Tab>('synthesis');
   const [filter, setFilter] = useState('');
   const [sessionId] = useState(() => `SESSION-${Math.random().toString(36).slice(2, 11).toUpperCase()}`);
-  const patient = DEMO_PATIENTS.find((p) => p.id === id) ?? DEMO_PATIENTS[0];
+  const patient = DEMO_PATIENTS.find((p) => p.id === id);
   const { profile, criticalAlerts, pathologies, activeTreatments, recentExams, doctorRecommendations } = AI_SYNTHESIS;
 
   const reports = MEDICAL_REPORTS.filter((r) => {
     const q = filter.trim().toLowerCase();
     return !q || r.title.toLowerCase().includes(q) || r.doctorName.toLowerCase().includes(q);
   });
+
+  if (!patient) {
+    return (
+      <div className="flex flex-col items-start gap-4">
+        <h1 className="text-h1">Dossier introuvable</h1>
+        <p className="text-ink-2">Aucun patient de démonstration ne correspond à ce lien.</p>
+        <Button onClick={() => navigate('/doctor/dashboard')}>Retour au tableau de bord</Button>
+      </div>
+    );
+  }
 
   return (
     <div className="flex flex-col gap-10">

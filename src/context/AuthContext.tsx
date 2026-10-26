@@ -17,10 +17,24 @@ const AuthContext = createContext<AuthValue | null>(null);
 
 const demoAccounts: Account[] = [...DEMO_PATIENTS, ...DEMO_DOCTORS];
 
+function isAccount(value: unknown): value is Account {
+  if (typeof value !== 'object' || value === null) return false;
+  const v = value as Record<string, unknown>;
+  return (
+    (v.role === 'patient' || v.role === 'doctor') &&
+    typeof v.id === 'string' &&
+    typeof v.firstName === 'string' &&
+    typeof v.lastName === 'string' &&
+    typeof v.email === 'string'
+  );
+}
+
 function readSession(): Account | null {
   try {
     const raw = sessionStorage.getItem(SESSION_KEY);
-    return raw ? (JSON.parse(raw) as Account) : null;
+    if (!raw) return null;
+    const parsed: unknown = JSON.parse(raw);
+    return isAccount(parsed) ? parsed : null;
   } catch {
     return null;
   }
@@ -28,7 +42,7 @@ function readSession(): Account | null {
 
 function writeSession(user: Account | null): void {
   try {
-    if (user) sessionStorage.setItem(SESSION_KEY, JSON.stringify(user));
+    if (user) sessionStorage.setItem(SESSION_KEY, JSON.stringify({ ...user, password: '' }));
     else sessionStorage.removeItem(SESSION_KEY);
   } catch {
     // Storage can be blocked (private mode). The session then lasts until reload.

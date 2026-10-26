@@ -28,7 +28,9 @@ export function NotificationCenter({ initial }: { initial: AppNotification[] }) 
       if (root.current && !root.current.contains(e.target as Node)) setOpen(false);
     };
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setOpen(false);
+      if (e.key !== 'Escape') return;
+      setOpen(false);
+      root.current?.querySelector('button')?.focus();
     };
     document.addEventListener('pointerdown', onPointer);
     document.addEventListener('keydown', onKey);
@@ -41,7 +43,13 @@ export function NotificationCenter({ initial }: { initial: AppNotification[] }) 
   const markAll = () => setItems((prev) => prev.map((n) => ({ ...n, unread: false })));
 
   return (
-    <div ref={root} className="relative">
+    <div
+      ref={root}
+      className="relative"
+      onBlur={(e) => {
+        if (open && !e.currentTarget.contains(e.relatedTarget as Node | null)) setOpen(false);
+      }}
+    >
       <IconButton
         label={unread > 0 ? `Notifications, ${unread} non lues` : 'Notifications'}
         aria-expanded={open}

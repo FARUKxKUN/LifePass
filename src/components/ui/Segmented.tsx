@@ -26,15 +26,26 @@ export function Segmented<T extends string>({ label, value, options, onChange, c
       aria-label={label}
       className={cn('inline-flex rounded-full bg-sunk p-1', className)}
     >
-      {options.map((o) => {
+      {options.map((o, index) => {
         const active = o.value === value;
         return (
           <button
             key={o.value}
+            id={`${group}-${o.value}`}
             type="button"
             role="radio"
             aria-checked={active}
+            tabIndex={active ? 0 : -1}
             onClick={() => onChange(o.value)}
+            onKeyDown={(event) => {
+              const step =
+                event.key === 'ArrowRight' || event.key === 'ArrowDown' ? 1 : event.key === 'ArrowLeft' || event.key === 'ArrowUp' ? -1 : 0;
+              if (!step) return;
+              event.preventDefault();
+              const next = options[(index + step + options.length) % options.length];
+              onChange(next.value);
+              document.getElementById(`${group}-${next.value}`)?.focus();
+            }}
             className={cn(
               'relative min-h-11 flex-1 rounded-full px-5 text-small font-semibold transition-colors',
               active ? 'text-ink' : 'text-ink-3 hover:text-ink',

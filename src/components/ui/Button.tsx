@@ -1,4 +1,4 @@
-import type { ButtonHTMLAttributes, ReactNode } from 'react';
+import { forwardRef, type ButtonHTMLAttributes, type ReactNode } from 'react';
 import { Link, type LinkProps } from 'react-router-dom';
 import { cn } from '../../lib/format';
 
@@ -33,13 +33,16 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
 }
 
-export function Button({ variant, size, className, type = 'button', children, ...rest }: ButtonProps) {
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button(
+  { variant, size, className, type = 'button', children, ...rest },
+  ref,
+) {
   return (
-    <button type={type} className={buttonClass(variant, size, className)} {...rest}>
+    <button ref={ref} type={type} className={buttonClass(variant, size, className)} {...rest}>
       {children}
     </button>
   );
-}
+});
 
 interface ButtonLinkProps extends LinkProps {
   variant?: Variant;
