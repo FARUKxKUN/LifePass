@@ -1,14 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 40" fill="none">
-  <rect x="2" y="2" width="36" height="36" rx="8" stroke="#1976D2" stroke-width="2.5" fill="#0D47A1"/>
-  <rect x="10" y="10" width="6" height="6" rx="1" fill="white"/>
-  <rect x="18" y="10" width="6" height="6" rx="1" fill="white"/>
-  <rect x="26" y="10" width="6" height="6" rx="1" fill="white" opacity="0.6"/>
-  <rect x="10" y="18" width="6" height="6" rx="1" fill="white" opacity="0.6"/>
-  <rect x="18" y="18" width="6" height="6" rx="1" fill="white"/>
-  <rect x="26" y="18" width="6" height="6" rx="1" fill="white"/>
-  <rect x="10" y="26" width="6" height="6" rx="1" fill="white"/>
-  <rect x="18" y="26" width="6" height="6" rx="1" fill="white" opacity="0.6"/>
-  <rect x="26" y="26" width="6" height="6" rx="1" fill="white"/>
-  <text x="48" y="28" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="800" fill="#0D47A1">Life</text>
-  <text x="100" y="28" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="800" fill="#1976D2">Pass</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <rect width="64" height="64" rx="16" fill="#2C5F87"/>
+  <rect x="14" y="14" width="14" height="14" rx="3" fill="#EAF1F5"/>
+  <rect x="36" y="14" width="14" height="14" rx="3" fill="#EAF1F5" fill-opacity=".55"/>
+  <rect x="14" y="36" width="14" height="14" rx="3" fill="#EAF1F5" fill-opacity=".55"/>
+  <path d="M36 43h6l3-6 4 12 3-6h2" stroke="#EAF1F5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
