@@ -4,11 +4,14 @@ import { ButtonLink } from '../ui/Button';
 
 const REPO = 'https://github.com/FARUKxKUN/LifePass';
 
-const PEOPLE = [
-  { name: 'Yassine Bouteraa', role: 'Concept et pitch', href: 'https://github.com/yassinebouteraa' },
-  { name: 'Rayen Chatti', role: 'Concept et pitch', href: 'https://github.com/rayenchatti' },
-  { name: 'Farouk Battikh', role: 'Prototype', href: 'https://github.com/FARUKxKUN' },
+const PEOPLE: { name: string; role: string; href?: string }[] = [
+  { name: 'Yassine Bouteraa', role: 'Idéation, design du pitch deck', href: 'https://github.com/yassinebouteraa' },
+  { name: 'Rayen Chatti', role: 'Idéation, design du pitch deck', href: 'https://github.com/rayenchatti' },
+  { name: 'Ameny Ferchichi', role: 'Pitch' },
+  { name: 'Farouk Battikh', role: 'Prototype, pitch', href: 'https://github.com/FARUKxKUN' },
 ];
+
+const ROW = 'flex min-h-20 flex-wrap items-center justify-between gap-x-6 gap-y-1 py-4 md:px-2';
 
 export function Team() {
   return (
@@ -17,20 +20,27 @@ export function Team() {
         <h2 id="equipe-titre" className="max-w-4xl text-h1">
           1re place au DevHeist, ISIMa, février 2026.
         </h2>
-        <p className="mt-6 max-w-xl text-ink-2">Un projet d'équipe. Le concept et le pitch ont été portés par deux coéquipiers, la maquette cliquable a été construite ensuite.</p>
+        <p className="mt-6 max-w-xl text-ink-2">Un projet d'équipe à quatre : l'idéation et le pitch deck, le pitch devant le jury, puis la maquette cliquable.</p>
         <ul className="mt-12 max-w-3xl border-b border-line">
           {PEOPLE.map((p) => (
             <li key={p.name} className="border-t border-line">
-              <a href={p.href} target="_blank" rel="noreferrer" className="group flex min-h-20 flex-wrap items-center justify-between gap-x-6 gap-y-1 py-4 transition-colors hover:bg-sunk/60 md:px-2">
-                <span className="font-display text-3xl leading-tight">
-                  {p.name}
-                  <span className="sr-only"> (profil GitHub, nouvel onglet)</span>
-                </span>
-                <span className="flex items-center gap-3 text-ink-2">
-                  {p.role}
-                  <ArrowUpRight size={20} weight="bold" className="text-ink-3 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" aria-hidden="true" />
-                </span>
-              </a>
+              {p.href ? (
+                <a href={p.href} target="_blank" rel="noreferrer" className={`group transition-colors hover:bg-sunk/60 ${ROW}`}>
+                  <span className="font-display text-3xl leading-tight">
+                    {p.name}
+                    <span className="sr-only"> (profil GitHub, nouvel onglet)</span>
+                  </span>
+                  <span className="flex items-center gap-3 text-ink-2">
+                    {p.role}
+                    <ArrowUpRight size={20} weight="bold" className="text-ink-3 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" aria-hidden="true" />
+                  </span>
+                </a>
+              ) : (
+                <div className={ROW}>
+                  <span className="font-display text-3xl leading-tight">{p.name}</span>
+                  <span className="text-ink-2">{p.role}</span>
+                </div>
+              )}
             </li>
           ))}
         </ul>

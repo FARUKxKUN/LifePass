@@ -11,6 +11,12 @@
 
 **1st place at the DevHeist hackathon (ISIMa, February 2026).** Redesigned in October 2026. The version presented at the hackathon is tagged [`hackathon-2026-02`](https://github.com/FARUKxKUN/LifePass/tree/hackathon-2026-02).
 
+## Demo
+
+60 second walkthrough of the live prototype (French UI): the patient record and QR code, the access log, the doctor side with the simulated scan, CPS code and consent, adding a report, then the phone layout. Sound effects only.
+
+https://github.com/user-attachments/assets/5e6ac446-5838-4f5f-a549-fcdeb07b9aaa
+
 ![LifePass landing page](docs/screenshot.png)
 
 ---
@@ -93,8 +99,9 @@ This is the clickable prototype, redesigned. Everything runs in the browser with
 
 | | Role |
 |---|---|
-| [Rayen Chatti](https://github.com/rayenchatti) | Concept, pitch deck design |
-| [Yassine Bouteraa](https://github.com/yassinebouteraa) | Concept, pitch deck design, pitch |
+| [Yassine Bouteraa](https://github.com/yassinebouteraa) | Ideation, pitch deck design |
+| [Rayen Chatti](https://github.com/rayenchatti) | Ideation, pitch deck design |
+| Ameny Ferchichi | Pitch |
 | **Farouk Battikh** ([@FARUKxKUN](https://github.com/FARUKxKUN)) | Prototype and its redesign, pitch |
 
 ## License
