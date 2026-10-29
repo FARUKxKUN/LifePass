@@ -2,7 +2,7 @@
 
 **A patient's medical record in one QR code, opened by a doctor only with the patient's consent.**
 
-[![Live demo](https://img.shields.io/badge/live_demo-lifepass--sandy.vercel.app-e2643a?style=flat)](https://lifepass-sandy.vercel.app)
+[![Live demo](https://img.shields.io/badge/live_demo-lifepass--qr.vercel.app-e2643a?style=flat)](https://lifepass-qr.vercel.app)
 [![CI](https://github.com/FARUKxKUN/LifePass/actions/workflows/ci.yml/badge.svg)](https://github.com/FARUKxKUN/LifePass/actions/workflows/ci.yml)
 ![1st place DevHeist](https://img.shields.io/badge/DevHeist_2026-1st_place-e2643a?style=flat)
 ![React](https://img.shields.io/badge/React-18-61DAFB?style=flat&logo=react&logoColor=black)
